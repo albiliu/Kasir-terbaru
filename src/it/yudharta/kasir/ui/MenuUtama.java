@@ -6,6 +6,8 @@
 package it.yudharta.kasir.ui;
 
 import it.yudharta.kasir.ui.dialog.AturKoneksi;
+import it.yudharta.kasir.ui.panel.DaftarBarang;
+import javax.swing.JPanel;
 
 /**
  *
@@ -38,7 +40,7 @@ public class MenuUtama extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        paneUtama = new javax.swing.JTabbedPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnMaster = new javax.swing.JMenu();
         miDaftarBarang = new javax.swing.JMenuItem();
@@ -54,6 +56,11 @@ public class MenuUtama extends javax.swing.JFrame {
 
         miDaftarBarang.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
         miDaftarBarang.setText("Daftar Barang");
+        miDaftarBarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miDaftarBarangActionPerformed(evt);
+            }
+        });
         mnMaster.add(miDaftarBarang);
         mnMaster.add(jSeparator1);
 
@@ -77,12 +84,12 @@ public class MenuUtama extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
+                .addComponent(paneUtama, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
+            .addComponent(paneUtama, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
         );
 
         pack();
@@ -94,13 +101,18 @@ public class MenuUtama extends javax.swing.JFrame {
         dialog.setVisible(true);
     }//GEN-LAST:event_miAturKoneksiActionPerformed
 
+    private void miDaftarBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miDaftarBarangActionPerformed
+        DaftarBarang daftarBarang = new DaftarBarang(paneUtama);
+        this.paneUtama.add("Daftar Barang",daftarBarang);
+    }//GEN-LAST:event_miDaftarBarangActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JMenuItem miAturKoneksi;
     private javax.swing.JMenuItem miDaftarBarang;
     private javax.swing.JMenu mnMaster;
     private javax.swing.JMenu mnTransaksi;
+    private javax.swing.JTabbedPane paneUtama;
     // End of variables declaration//GEN-END:variables
 }
