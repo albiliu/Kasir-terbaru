@@ -5,6 +5,14 @@
  */
 package it.yudharta.kasir.ui.panel;
 
+import it.yudharta.kasir.tools.Koneksi;
+import it.yudharta.kasir.tools.ListTableModel;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTabbedPane;
 
 /**
@@ -13,14 +21,15 @@ import javax.swing.JTabbedPane;
  */
 public class DaftarBarang extends javax.swing.JPanel {
 
-    JTabbedPane pane;    
+    JTabbedPane pane;
+
     /**
      * Creates new form DaftarBarang
      */
     public DaftarBarang(JTabbedPane pane) {
         this.pane = pane;
         initComponents();
-        //refreshData();
+        refreshData();
     }
 
     /**
@@ -59,6 +68,11 @@ public class DaftarBarang extends javax.swing.JPanel {
         });
 
         btnRefresh.setText("Refresh");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlSampingLayout = new javax.swing.GroupLayout(pnlSamping);
         pnlSamping.setLayout(pnlSampingLayout);
@@ -101,6 +115,10 @@ public class DaftarBarang extends javax.swing.JPanel {
         this.pane.remove(this.pane.indexOfComponent(this));
     }//GEN-LAST:event_btnKeluarActionPerformed
 
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        refreshData();
+    }//GEN-LAST:event_btnRefreshActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnKeluar;
@@ -109,4 +127,21 @@ public class DaftarBarang extends javax.swing.JPanel {
     private javax.swing.JPanel pnlSamping;
     private javax.swing.JTable tblDaftar;
     // End of variables declaration//GEN-END:variables
+
+    private void refreshData() {
+        String sql = "SELECT * FROM barang";
+
+        try {
+            Connection con = Koneksi.getInstance().getKoneksi();
+            Statement sttm = con.createStatement();
+            ResultSet rs = sttm.executeQuery(sql);
+            ListTableModel model = ListTableModel
+                    .createModelFromResultSet(rs);
+            tblDaftar.setModel(model);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DaftarBarang.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 }
