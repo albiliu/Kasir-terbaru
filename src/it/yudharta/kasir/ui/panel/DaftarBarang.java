@@ -25,6 +25,8 @@ public class DaftarBarang extends javax.swing.JPanel {
 
     /**
      * Creates new form DaftarBarang
+     * 
+     * @param pane pane yang digunakan untuk menampung panel.
      */
     public DaftarBarang(JTabbedPane pane) {
         this.pane = pane;
