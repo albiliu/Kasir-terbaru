@@ -36,6 +36,30 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Transaksi"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="miBeli">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pembelian"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="miDaftarBeli">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Daftar Pembelian"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator2">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="miJual">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Penjualan"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="miDaftarJual">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Daftar Penjualan"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>
