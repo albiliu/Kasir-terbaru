@@ -175,6 +175,7 @@ public class AturKoneksi extends javax.swing.JDialog {
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
         if (tersimpan("config.properties")) {
             JOptionPane.showMessageDialog(this, "Data Berhasil Tersimpan");
+            dispose();
         }
     }//GEN-LAST:event_btnSimpanActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
