@@ -5,8 +5,10 @@
  */
 package it.yudharta.kasir.ui.panel;
 
+import it.yudharta.kasir.Utama;
 import it.yudharta.kasir.tools.Koneksi;
 import it.yudharta.kasir.tools.ListTableModel;
+import it.yudharta.kasir.ui.dialog.Barang;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -48,6 +50,9 @@ public class DaftarBarang extends javax.swing.JPanel {
         pnlSamping = new javax.swing.JPanel();
         btnKeluar = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
+        btnHapus = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        btnTambah = new javax.swing.JButton();
 
         tblDaftar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -73,6 +78,17 @@ public class DaftarBarang extends javax.swing.JPanel {
             }
         });
 
+        btnHapus.setText("Hapus");
+
+        btnEdit.setText("Edit");
+
+        btnTambah.setText("Tambah");
+        btnTambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTambahActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlSampingLayout = new javax.swing.GroupLayout(pnlSamping);
         pnlSamping.setLayout(pnlSampingLayout);
         pnlSampingLayout.setHorizontalGroup(
@@ -81,7 +97,10 @@ public class DaftarBarang extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(pnlSampingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnKeluar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRefresh, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
+                    .addComponent(btnRefresh, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                    .addComponent(btnHapus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnTambah, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnlSampingLayout.setVerticalGroup(
@@ -91,7 +110,13 @@ public class DaftarBarang extends javax.swing.JPanel {
                 .addComponent(btnKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addComponent(btnTambah)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnEdit)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnHapus)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -118,10 +143,18 @@ public class DaftarBarang extends javax.swing.JPanel {
         refreshData();
     }//GEN-LAST:event_btnRefreshActionPerformed
 
+    private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
+        Barang barang = new Barang(Utama.menuUtama, true);
+        barang.setVisible(true);
+    }//GEN-LAST:event_btnTambahActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnKeluar;
     private javax.swing.JButton btnRefresh;
+    private javax.swing.JButton btnTambah;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel pnlSamping;
     private javax.swing.JTable tblDaftar;
