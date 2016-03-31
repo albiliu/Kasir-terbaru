@@ -7,7 +7,10 @@ package it.yudharta.kasir.ui;
 
 import it.yudharta.kasir.ui.dialog.AturKoneksi;
 import it.yudharta.kasir.ui.panel.DaftarBarang;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 /**
  *
@@ -18,8 +21,9 @@ public class MenuUtama extends javax.swing.JFrame {
     /**
      * Creates new form MainMenu
      */
-    public MenuUtama() {
+    private MenuUtama() {
         initComponents();
+        runTimer();
     }
 
     public static MenuUtama getInstance() {
@@ -41,6 +45,7 @@ public class MenuUtama extends javax.swing.JFrame {
     private void initComponents() {
 
         paneUtama = new javax.swing.JTabbedPane();
+        lbTimer = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnMaster = new javax.swing.JMenu();
         miDaftarBarang = new javax.swing.JMenuItem();
@@ -56,6 +61,8 @@ public class MenuUtama extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Kasir");
         setExtendedState(getExtendedState() | MAXIMIZED_BOTH);
+
+        lbTimer.setText("jLabel1");
 
         mnMaster.setText("Master Data");
 
@@ -102,13 +109,17 @@ public class MenuUtama extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(paneUtama, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(paneUtama, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addComponent(lbTimer, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(paneUtama, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(paneUtama, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbTimer))
         );
 
         pack();
@@ -129,6 +140,7 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JLabel lbTimer;
     private javax.swing.JMenuItem miAturKoneksi;
     private javax.swing.JMenuItem miBeli;
     private javax.swing.JMenuItem miDaftarBarang;
@@ -139,4 +151,14 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JMenu mnTransaksi;
     private javax.swing.JTabbedPane paneUtama;
     // End of variables declaration//GEN-END:variables
+    
+    private void runTimer() {
+        Timer timer = new Timer(1000, (e) -> {
+            String sekarang = LocalDateTime.now()
+                    .format(DateTimeFormatter
+                    .ofPattern("yyyy/MM/dd HH:mm:ss"));
+            lbTimer.setText(sekarang);
+        });
+        timer.start();
+    }
 }
