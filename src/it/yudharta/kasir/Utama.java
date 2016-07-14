@@ -21,7 +21,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  * Seluruh program akan dijalankan mulai dari class Utama.
  *
  *
- * @author cahya
+ * @author cahya bagus
  */
 public class Utama {
 
